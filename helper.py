@@ -138,3 +138,7 @@ def getGenreList(books):
                 genres.append(genre)
 
     return genres
+
+
+class ThreadHTTPServer(ThreadingMixIn, http.server.HTTPServer):
+    "This is an HTTP server that supports thread-based concurrency"
