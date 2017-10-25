@@ -1,1 +1,1 @@
-web: python populate:application.
+web: python populate.py application.py
