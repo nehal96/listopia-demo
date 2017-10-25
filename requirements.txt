@@ -1,5 +1,6 @@
 flask
 datetime
 httplib2
+gunicorn
 requests
 sqlalchemy
