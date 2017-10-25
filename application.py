@@ -148,6 +148,7 @@ def deleteBook(book_id):
 
 
 if __name__ == '__main__':
-    app.secret_key = 'super_secret_key'
-    app.debug = True
-    app.run()
+    port = int(os.environ.get('PORT', 8000)) # Use PORT if it's there
+    server_address = ('', port)
+    httpd = ThreadHTTPServer(server_address, Shortener)
+    httpd.serve_forever()
