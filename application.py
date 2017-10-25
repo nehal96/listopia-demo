@@ -13,14 +13,13 @@ import json
 import ast
 import requests
 import threading
-from socketserver import ThreadingMixIn
 import random, string
 
 from sqlalchemy import create_engine, asc
 from sqlalchemy.orm import sessionmaker
 
 from models import Base, Book, User
-from helper import getBookInfo, chunkify, getGenreList, ThreadHTTPServer
+from helper import getBookInfo, chunkify, getGenreList
 
 
 engine = create_engine('sqlite:///books.db')
@@ -155,6 +154,4 @@ def deleteBook(book_id):
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8000)) # Use PORT if it's there
-    server_address = ('', port)
-    httpd = ThreadHTTPServer(server_address, Shortener)
-    httpd.serve_forever()
+    app.run(host='0.0.0.0', port=port)

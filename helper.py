@@ -2,6 +2,9 @@
 
 import httplib2
 import json
+import http.server
+import threading
+from socketserver import ThreadingMixIn
 from flask import jsonify
 
 GOOGLE_API_KEY = 'AIzaSyAoP6d5rxc2yN3584UVfRdSGuU6fmwyKOI'
@@ -138,7 +141,3 @@ def getGenreList(books):
                 genres.append(genre)
 
     return genres
-
-
-class ThreadHTTPServer(ThreadingMixIn, http.server.HTTPServer):
-    "This is an HTTP server that supports thread-based concurrency"
