@@ -1,7 +1,6 @@
 flask
 datetime
 httplib2
-ast
 requests
 random
 string
